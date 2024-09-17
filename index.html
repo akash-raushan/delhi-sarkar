@@ -30,19 +30,23 @@
     <!-- Header -->
     <header class="bg-gray-300 py-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
+
             <div class="flex items-center mx-4">
+                <div class="lg:hidden mr-6">
+                    <button id="hamburger" class="text-gray-800 focus:outline-none">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
                 <!-- Responsive Logo Size -->
                 <img src="assest/emblem-dark.png" alt="Govt Logo" class="h-10 sm:h-12 lg:h-16">
                 <img src="assest/amblem_1.png" alt="Govt Logo" class="h-10 sm:h-12 lg:h-16 ml-2">
             </div>
             <!-- Hamburger Menu -->
-            <div class="lg:hidden">
-                <button id="hamburger" class="text-gray-800 focus:outline-none">
-                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
+
             <!-- Navbar Links (hidden by default on small screens) -->
             <nav id="menu" class="hidden lg:flex space-x-6">
                 <a href="#" class="text-gray-800 hover:text-blue-600">Home</a>
@@ -60,7 +64,7 @@
                 </button>
             </div>
         </div>
-    
+
         <!-- Mobile Menu (initially hidden) -->
         <nav id="mobileMenu" class="lg:hidden bg-gray-300 py-4 hidden">
             <a href="#" class="block py-2 px-4 text-gray-800 hover:text-blue-600">Home</a>
@@ -70,7 +74,7 @@
             <a href="#" class="block py-2 px-4 text-gray-800 hover:text-blue-600">Contact Us</a>
         </nav>
     </header>
-    
+
 
     <!-- Modal for Login Form -->
     <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -79,16 +83,24 @@
             <form>
                 <div class="mb-4">
                     <label for="username" class="block mb-1">Username</label>
-                    <input type="text" id="username" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your username">
+                    <input type="text" id="username"
+                        class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your username">
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block mb-1">Password</label>
-                    <input type="password" id="password" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password">
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your password">
                 </div>
-                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-lg">Sign in</button>
+                <button type="submit"
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-lg">Sign
+                    in</button>
             </form>
-            <p class="mt-4 text-center">Not a member? <a href="#" id="registerLink" class="text-purple-300 hover:underline">Register</a></p>
-            <button id="closeButton" class="absolute top-2 right-2 text-gray-300 hover:text-white text-xl">&times;</button>
+            <p class="mt-4 text-center">Not a member? <a href="#" id="registerLink"
+                    class="text-purple-300 hover:underline">Register</a></p>
+            <button id="closeButton"
+                class="absolute top-2 right-2 text-gray-300 hover:text-white text-xl">&times;</button>
         </div>
     </div>
 
@@ -99,24 +111,36 @@
             <form>
                 <div class="mb-4">
                     <label for="regUsername" class="block mb-1">Username</label>
-                    <input type="text" id="regUsername" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your username">
+                    <input type="text" id="regUsername"
+                        class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your username">
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block mb-1">Email</label>
-                    <input type="email" id="email" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email">
+                    <input type="email" id="email"
+                        class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your email">
                 </div>
                 <div class="mb-4">
                     <label for="regPassword" class="block mb-1">Password</label>
-                    <input type="password" id="regPassword" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password">
+                    <input type="password" id="regPassword"
+                        class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your password">
                 </div>
                 <div class="mb-4">
                     <label for="confirmPassword" class="block mb-1">Re-Password</label>
-                    <input type="password" id="confirmPassword" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Confirm your password">
+                    <input type="password" id="confirmPassword"
+                        class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Confirm your password">
                 </div>
-                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-lg">Sign up</button>
+                <button type="submit"
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-lg">Sign
+                    up</button>
             </form>
-            <p class="mt-4 text-center">Already a user? <a href="#" id="loginLink" class="text-purple-300 hover:underline">Sign in</a></p>
-            <button id="closeRegisterButton" class="absolute top-2 right-2 text-gray-300 hover:text-white text-xl">&times;</button>
+            <p class="mt-4 text-center">Already a user? <a href="#" id="loginLink"
+                    class="text-purple-300 hover:underline">Sign in</a></p>
+            <button id="closeRegisterButton"
+                class="absolute top-2 right-2 text-gray-300 hover:text-white text-xl">&times;</button>
         </div>
     </div>
 
@@ -129,7 +153,8 @@
 
     <!-- Flash News -->
     <div class="bg-blue-800 text-white flex items-center justify-center mt-4">
-        <div class="py-2 px-4 w-32 font-semibold bg-white text-black font-bold rounded-tr-3xl rounded-br-3xl">Flash News:</div>
+        <div class="py-2 px-4 w-32 font-semibold bg-white text-black font-bold rounded-tr-3xl rounded-br-3xl">Flash
+            News:</div>
         <div class="overflow-hidden w-full">
             <div class="flash-news-marquee whitespace-nowrap">
                 <span class="inline-block px-4">sit amet consectetur, adipisicing elit.</span>
@@ -207,12 +232,12 @@
         });
 
         const hamburger = document.getElementById('hamburger');
-    const menu = document.getElementById('menu');
-    const mobileMenu = document.getElementById('mobileMenu');
+        const menu = document.getElementById('menu');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
     </script>
 
