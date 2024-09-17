@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Sarkar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .flash-news-marquee {
+            animation: scroll-left 15s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-gray-300 py-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center mx-4">
+                <img src="assest/emblem-dark.png" alt="Govt Logo">
+                <img src="assest/amblem_1.png" alt="Govt Logo">
+            </div>
+            <nav class="space-x-6">
+                <a href="#" class="text-gray-800 hover:text-blue-600">Home</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600">About</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600">Schemes</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600">FAQs</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600">Contact Us</a>
+            </nav>
+            <div class="space-x-4 mx-6">
+                <button class="p-2 rounded-full bg-gray-400 hover:bg-gray-500">
+                    <img src="assest/alarm.png" alt="Notification" class="h-5 w-5">
+                </button>
+                <button class="p-2 rounded-full bg-gray-400 hover:bg-gray-500" id="profileImage">
+                    <img src="assest/account.png" alt="User" class="h-5 w-5">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal for Login Form -->
+    <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-blue-900 text-white rounded-lg p-8 w-96 relative">
+            <h2 class="text-2xl font-bold mb-6 text-center">Sign in</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="username" class="block mb-1">Username</label>
+                    <input type="text" id="username" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your username">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block mb-1">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-lg">Sign in</button>
+            </form>
+            <p class="mt-4 text-center">Not a member? <a href="#" id="registerLink" class="text-purple-300 hover:underline">Register</a></p>
+            <button id="closeButton" class="absolute top-2 right-2 text-gray-300 hover:text-white text-xl">&times;</button>
+        </div>
+    </div>
+
+    <!-- Modal for Registration Form -->
+    <div id="registerModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-blue-900 text-white rounded-lg p-8 w-96 relative">
+            <h2 class="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="regUsername" class="block mb-1">Username</label>
+                    <input type="text" id="regUsername" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your username">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block mb-1">Email</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email">
+                </div>
+                <div class="mb-4">
+                    <label for="regPassword" class="block mb-1">Password</label>
+                    <input type="password" id="regPassword" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password">
+                </div>
+                <div class="mb-4">
+                    <label for="confirmPassword" class="block mb-1">Re-Password</label>
+                    <input type="password" id="confirmPassword" class="w-full px-4 py-2 rounded-lg bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Confirm your password">
+                </div>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-lg">Sign up</button>
+            </form>
+            <p class="mt-4 text-center">Already a user? <a href="#" id="loginLink" class="text-purple-300 hover:underline">Sign in</a></p>
+            <button id="closeRegisterButton" class="absolute top-2 right-2 text-gray-300 hover:text-white text-xl">&times;</button>
+        </div>
+    </div>
+
+    <!-- Carousel / Banner -->
+    <section class="container mx-auto mt-6">
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+            <img src="assest/banner.jpg" alt="Carousel Image" class="w-full rounded-lg">
+        </div>
+    </section>
+
+    <!-- Flash News -->
+    <div class="bg-blue-800 text-white flex items-center justify-center mt-4">
+        <div class="py-2 px-4 w-32 font-semibold bg-white text-black font-bold rounded-tr-3xl rounded-br-3xl">Flash News:</div>
+        <div class="overflow-hidden w-full">
+            <div class="flash-news-marquee whitespace-nowrap">
+                <span class="inline-block px-4">sit amet consectetur, adipisicing elit.</span>
+                <span class="inline-block px-4">Officiis ipsum nobis corporis a, iusto architecto se.</span>
+                <span class="inline-block px-4">Breaking News: Lorem ipsum dolor sit amet!</span>
+                <span class="inline-block px-4">New Announcement: Event on 20th October!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Icons and Text -->
+    <section class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        <div class="bg-blue-800 text-white p-6 text-center rounded-lg shadow-lg">
+            <img src="assest/taxes.png" alt="Taxation" class="h-16 mx-auto mb-4">
+            <h3 class="text-lg font-bold">Taxation Policy</h3>
+        </div>
+        <div class="bg-blue-800 text-white p-6 text-center rounded-lg shadow-lg">
+            <img src="assest/news.png" alt="News" class="h-16 mx-auto mb-4">
+            <h3 class="text-lg font-bold">News</h3>
+        </div>
+        <div class="bg-blue-800 text-white p-6 text-center rounded-lg shadow-lg">
+            <img src="assest/diagram.png" alt="Schemes" class="h-16 mx-auto mb-4">
+            <h3 class="text-lg font-bold">Schemes</h3>
+        </div>
+        <div class="bg-blue-800 text-white p-6 text-center rounded-lg shadow-lg">
+            <img src="assest/megaphone (2).png" alt="Announcements" class="h-16 mx-auto mb-4">
+            <h3 class="text-lg font-bold">Announcements</h3>
+        </div>
+    </section>
+
+    <!-- Footer (Optional) -->
+    <footer class="bg-gray-300 py-6 mt-8">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-700">&copy; 2023 Govt. of Delhi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script for Modal Functionality -->
+    <script>
+        const profileImage = document.getElementById('profileImage');
+        const loginModal = document.getElementById('loginModal');
+        const closeButton = document.getElementById('closeButton');
+        const registerLink = document.getElementById('registerLink');
+        const loginLink = document.getElementById('loginLink');
+        const registerModal = document.getElementById('registerModal');
+        const closeRegisterButton = document.getElementById('closeRegisterButton');
+
+        // Open login modal
+        profileImage.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+        });
+
+        // Close login modal
+        closeButton.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+        });
+
+        // Switch from login modal to register modal
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.classList.add('hidden');
+            registerModal.classList.remove('hidden');
+        });
+
+        // Switch from register modal to login modal
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerModal.classList.add('hidden');
+            loginModal.classList.remove('hidden');
+        });
+
+        // Close register modal
+        closeRegisterButton.addEventListener('click', () => {
+            registerModal.classList.add('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
