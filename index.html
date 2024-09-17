@@ -31,17 +31,27 @@
     <header class="bg-gray-300 py-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center mx-4">
-                <img src="assest/emblem-dark.png" alt="Govt Logo">
-                <img src="assest/amblem_1.png" alt="Govt Logo">
+                <!-- Responsive Logo Size -->
+                <img src="assest/emblem-dark.png" alt="Govt Logo" class="h-10 sm:h-12 lg:h-16">
+                <img src="assest/amblem_1.png" alt="Govt Logo" class="h-10 sm:h-12 lg:h-16 ml-2">
             </div>
-            <nav class="space-x-6">
+            <!-- Hamburger Menu -->
+            <div class="lg:hidden">
+                <button id="hamburger" class="text-gray-800 focus:outline-none">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Navbar Links (hidden by default on small screens) -->
+            <nav id="menu" class="hidden lg:flex space-x-6">
                 <a href="#" class="text-gray-800 hover:text-blue-600">Home</a>
                 <a href="#" class="text-gray-800 hover:text-blue-600">About</a>
                 <a href="#" class="text-gray-800 hover:text-blue-600">Schemes</a>
                 <a href="#" class="text-gray-800 hover:text-blue-600">FAQs</a>
                 <a href="#" class="text-gray-800 hover:text-blue-600">Contact Us</a>
             </nav>
-            <div class="space-x-4 mx-6">
+            <div class="lg:flex space-x-4 mx-6">
                 <button class="p-2 rounded-full bg-gray-400 hover:bg-gray-500">
                     <img src="assest/alarm.png" alt="Notification" class="h-5 w-5">
                 </button>
@@ -50,7 +60,17 @@
                 </button>
             </div>
         </div>
+    
+        <!-- Mobile Menu (initially hidden) -->
+        <nav id="mobileMenu" class="lg:hidden bg-gray-300 py-4 hidden">
+            <a href="#" class="block py-2 px-4 text-gray-800 hover:text-blue-600">Home</a>
+            <a href="#" class="block py-2 px-4 text-gray-800 hover:text-blue-600">About</a>
+            <a href="#" class="block py-2 px-4 text-gray-800 hover:text-blue-600">Schemes</a>
+            <a href="#" class="block py-2 px-4 text-gray-800 hover:text-blue-600">FAQs</a>
+            <a href="#" class="block py-2 px-4 text-gray-800 hover:text-blue-600">Contact Us</a>
+        </nav>
     </header>
+    
 
     <!-- Modal for Login Form -->
     <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -185,6 +205,15 @@
         closeRegisterButton.addEventListener('click', () => {
             registerModal.classList.add('hidden');
         });
+
+        const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
     </script>
 
 </body>
